@@ -1,32 +1,63 @@
-# React + TypeScript + Vite
+# Урок 1 — React, TypeScript и FSD
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Выполнены базовая архитектура, сущность Task, список с фильтрацией и удалением,
+страница TaskPage и виджет TaskWidget.
 
-Currently, two official plugins are available:
+## Окружение и запуск
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Используйте Node.js 22.12+ (ветка 22 указана в `.nvmrc`).
+Если установлен nvm: `nvm install` и `nvm use` из этой папки.
+Системный Node.js 20.13.1 слишком стар для установленного Vite.
 
-## React Compiler
+Из корня репозитория:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```sh
+cd lesson-1
+npm ci
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Откройте адрес, напечатанный Vite. `/` перенаправляет на `/tasks`.
+На `/tasks` показан список задач с фильтрами и удалением,
+остальные адреса показывают 404.
+
+## Проверки
+
+```sh
+npm run check
+npm run format
+```
+
+`check` запускает TypeScript и сборку Vite, ESLint и проверку Prettier.
+`format` исправляет форматирование. Отдельно доступны `build`, `lint`,
+`format:check`, а также `preview` для просмотра готовой сборки.
+
+## Структура
+
+```text
+src/
+  app/        # App.tsx, router.tsx, глобальные стили
+  pages/      # TaskPage подключает виджет задач
+  widgets/    # TaskWidget: обёртка списка и начальные данные
+  features/   # taskList: useTasks, фильтры и удаление
+  entities/   # тип Task и презентационный TaskCard с CSS-модулем
+  shared/     # общие UI-компоненты и утилиты
+  main.tsx    # точка входа React
+```
+
+Направление зависимостей: app → pages → widgets → features → entities → shared.
+Слайсы одного слоя не импортируют друг друга. Внутри слайса разрешены
+относительные импорты, снаружи используется публичный `index.ts`:
+
+```ts
+import { TaskPage } from 'pages/tasks';
+```
+
+ESLint с `eslint-plugin-boundaries` проверяет границы по разрешённым путям,
+включая относительные импорты, и доступ к слайсам через публичный API.
+App и Shared не разделены на слайсы, внутренние импорты в них разрешены.
+Алиасы шести слоёв определены в `tsconfig.json`; `tsconfig.app.json` наследует
+их, а Vite читает тот же список. Prettier отвечает за единый стиль кода,
+`eslint-config-prettier` отключает конфликтующие правила ESLint.
+
+Критерии всего задания и оставшиеся этапы — в `../LESSON-1.md`.
