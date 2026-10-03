@@ -1,0 +1,48 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-block: 24px 16px;
+}
+
+.deleteButton {
+  padding: 10px 16px;
+  border: 1px solid #64748b;
+  border-radius: 8px;
+  background: #fff;
+  color: #334155;
+  font: inherit;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background: #f1f5f9;
+}
+
+.deleteButton:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.deleteButton {
+  color: #991b1b;
+  border-color: #991b1b;
+}
+
+.list {
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 16px;
+  margin-bottom: 16px;
+}
+
+.card {
+  flex: 1 1 280px;
+  min-width: 0;
+}
