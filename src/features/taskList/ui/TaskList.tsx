@@ -1,12 +1,14 @@
 import { TaskCard } from 'entities/task';
 import type { Task } from 'entities/task';
 import { FilterButton } from 'shared/ui/FilterButton';
-import { useTasks } from '../model/useTasks';
 import type { Filter } from '../model/useTasks';
 import styles from './TaskList.module.css';
 
 interface TaskListProps {
-  initialTasks: Task[];
+  tasks: Task[];
+  filter: Filter;
+  setFilter: (filter: Filter) => void;
+  removeTask: (id: string) => void;
 }
 
 const filters: { value: Filter; label: string }[] = [
@@ -15,9 +17,12 @@ const filters: { value: Filter; label: string }[] = [
   { value: 'incomplete', label: 'Невыполненные' },
 ];
 
-export function TaskList({ initialTasks }: TaskListProps) {
-  const { tasks, filter, setFilter, removeTask } = useTasks(initialTasks);
-
+export function TaskList({
+  tasks,
+  filter,
+  setFilter,
+  removeTask,
+}: TaskListProps) {
   return (
     <section aria-label="Список задач">
       <div

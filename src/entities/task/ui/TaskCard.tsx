@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { Task } from '../model/types';
 import styles from './TaskCard.module.css';
 
@@ -5,7 +6,7 @@ interface TaskCardProps {
   task: Task;
 }
 
-export function TaskCard({ task }: TaskCardProps) {
+export const TaskCard = memo(function TaskCard({ task }: TaskCardProps) {
   return (
     <article className={styles.card}>
       <h2 className={styles.title}>{task.title}</h2>
@@ -17,4 +18,4 @@ export function TaskCard({ task }: TaskCardProps) {
       </span>
     </article>
   );
-}
+});
