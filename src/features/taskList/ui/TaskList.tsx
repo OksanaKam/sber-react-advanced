@@ -8,7 +8,7 @@ interface TaskListProps {
   tasks: Task[];
   filter: Filter;
   setFilter: (filter: Filter) => void;
-  removeTask: (id: string) => void;
+  removeTask: (id: number) => void;
 }
 
 const filters: { value: Filter; label: string }[] = [

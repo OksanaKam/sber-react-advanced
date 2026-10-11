@@ -1,5 +1,5 @@
-import { useCallback, useMemo, useState } from 'react';
-import type { Task } from 'entities/task';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useGetTasksQuery, type Task } from 'entities/task';
 
 export type Filter = 'all' | 'completed' | 'incomplete';
 
@@ -7,15 +7,20 @@ export function useTasks(): {
   tasks: Task[];
   filter: Filter;
   setFilter: (filter: Filter) => void;
-  removeTask: (id: string) => void;
+  removeTask: (id: number) => void;
 } {
-  const initialTasks: Task[] = [
-    { id: '1', title: 'Реализовать сущность Task', completed: true },
-    { id: '2', title: 'Создать компонент Список задач', completed: true },
-    { id: '3', title: 'Проверить домашнее задание', completed: false },
-  ];
+  const { data } = useGetTasksQuery();
 
-  const [allTasks, setAllTasks] = useState<Task[]>(initialTasks);
+  const [allTasks, setAllTasks] = useState<Task[]>([]);
+  const initialized = useRef(false);
+
+  useEffect(() => {
+    if (data !== undefined && !initialized.current) {
+      initialized.current = true;
+      setAllTasks(data);
+    }
+  }, [data]);
+
   const [filter, setFilter] = useState<Filter>('all');
 
   const tasks = useMemo(() => {
@@ -26,7 +31,7 @@ export function useTasks(): {
     });
   }, [allTasks, filter]);
 
-  const removeTask = useCallback((id: string) => {
+  const removeTask = useCallback((id: number) => {
     setAllTasks((currentTasks) =>
       currentTasks.filter((task) => task.id !== id),
     );
