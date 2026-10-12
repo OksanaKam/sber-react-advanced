@@ -1,0 +1,124 @@
+.section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e0e6ef;
+}
+
+.section h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  color: #17243b;
+}
+
+.description,
+.step {
+  margin: 0;
+  color: #5b687d;
+  font-size: 14px;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.step {
+  color: #344fc4;
+  font-weight: 600;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #b8c4d4;
+  border-radius: 10px;
+  background: #fff;
+  color: #17243b;
+  font: inherit;
+}
+
+.field input.inputError {
+  border-color: #bd3345;
+  background: #fffafb;
+}
+
+.field input:focus-visible,
+.actions button:focus-visible {
+  outline: 3px solid #7187ee;
+  outline-offset: 3px;
+}
+
+.error {
+  margin: 0;
+  color: #ad2337;
+  font-size: 13px;
+}
+
+.confirmation {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.actions button {
+  flex: 1 1 180px;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid #344fc4;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary {
+  background: #344fc4;
+  color: #fff;
+}
+
+.primary:hover {
+  background: #293fa2;
+}
+
+.secondary {
+  background: #fff;
+  color: #344fc4;
+}
+
+.secondary:hover {
+  background: #f4f6ff;
+}
+
+.actions button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.success {
+  margin: 20px 0 0;
+  padding: 16px;
+  border: 1px solid #a6d8bb;
+  border-radius: 10px;
+  background: #edf9f1;
+  color: #22623d;
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,32 @@
+.pageWrapper {
+  box-sizing: border-box;
+  width: min(100% - 32px, 680px);
+  margin: 24px auto;
+  padding: 28px;
+  border: 1px solid #e0e6ef;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 16px 48px rgb(34 52 88 / 8%);
+}
+
+.pageWrapper h1 {
+  margin: 0 0 10px;
+  color: #17243b;
+  font-size: clamp(26px, 5vw, 32px);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.description {
+  margin: 0 0 20px;
+  color: #5b687d;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .pageWrapper {
+    margin: 24px auto;
+    padding: 24px 20px;
+  }
+}
