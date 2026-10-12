@@ -1,6 +1,6 @@
 # LESSON-3 — RTK Query и локальное состояние
 
-Ветка: `lesson-3`. База PR: `main`. Приложение находится в корне репозитория.
+Ветка: `lesson-3`. База PR: `main`. В текущей структуре репозитория приложение находится в `lesson-1-3/`.
 
 ## Что сделано
 
@@ -41,10 +41,11 @@
 
 ## Запуск и проверки
 
-Node.js: `^20.19.0 || >=22.12.0`; `.nvmrc` выбирает ветку 22.
-Команды выполняются из корня репозитория:
+Node.js: `^20.19.0 || >=22.12.0`; `lesson-1-3/.nvmrc` выбирает ветку 22.
+Из корня репозитория перейдите в папку приложения:
 
 ```sh
+cd lesson-1-3
 nvm use
 npm ci
 npm run dev
@@ -62,14 +63,14 @@ npm run format:check
 
 ## Ключевые файлы
 
-- [baseApi](src/shared/api/baseApi.ts) — общие настройки RTK Query.
-- [tasksApi](src/entities/task/api/tasksApi.ts) — endpoint задач и хук запроса.
-- [Task](src/entities/task/model/types.ts) — тип задачи.
-- [store](src/app/store/store.ts) — подключение reducer и middleware.
-- [main.tsx](src/main.tsx) — Redux Provider.
-- [useTasks](src/features/taskList/model/useTasks.ts) — загрузка, локальное состояние, фильтрация и удаление.
-- [TaskWidget](src/widgets/task/ui/TaskWidget.tsx) — вызов хука и передача props.
-- [TaskList](src/features/taskList/ui/TaskList.tsx) — список задач.
-- [TaskCard](src/entities/task/ui/TaskCard.tsx) — карточка задачи.
-- [package.json](package.json) — зависимости, скрипты и окружение.
-- [package-lock.json](package-lock.json) — зафиксированные зависимости.
+- [baseApi](lesson-1-3/src/shared/api/baseApi.ts) — общие настройки RTK Query.
+- [tasksApi](lesson-1-3/src/entities/task/api/tasksApi.ts) — endpoint задач и хук запроса.
+- [Task](lesson-1-3/src/entities/task/model/types.ts) — тип задачи.
+- [store](lesson-1-3/src/app/store/store.ts) — подключение reducer и middleware.
+- [main.tsx](lesson-1-3/src/main.tsx) — Redux Provider.
+- [useTasks](lesson-1-3/src/features/taskList/model/useTasks.ts) — загрузка, локальное состояние, фильтрация и удаление.
+- [TaskWidget](lesson-1-3/src/widgets/task/ui/TaskWidget.tsx) — вызов хука и передача props.
+- [TaskList](lesson-1-3/src/features/taskList/ui/TaskList.tsx) — список задач.
+- [TaskCard](lesson-1-3/src/entities/task/ui/TaskCard.tsx) — карточка задачи.
+- [package.json](lesson-1-3/package.json) — зависимости, скрипты и окружение.
+- [package-lock.json](lesson-1-3/package-lock.json) — зафиксированные зависимости.
