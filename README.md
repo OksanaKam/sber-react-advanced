@@ -1,13 +1,15 @@
 # React Advanced — учебный проект
 
-Один репозиторий на весь курс. Приложение находится в корне репозитория.
+Один репозиторий на весь курс. Менеджер задач уроков 1–3 находится в `lesson-1-3/`.
+Проект урока 4 с React Hook Form и Zod находится в `lesson-4/`.
 
 - `main` — принятые работы и основа следующего урока.
 - `lesson-N` — ветка урока N от актуальной `main`.
 - Один pull request в `main` соответствует одному уроку.
 - `LESSON-N.md` в корне содержит чек-лист, команды и ссылки на ключевые файлы.
 
-Текущая работа: [урок 2](LESSON-2.md). Результаты первого урока: [LESSON-1.md](LESSON-1.md).
+Текущая ветка: `lesson-4`. Результаты менеджера задач: [урок 1](LESSON-1.md),
+[урок 2](LESSON-2.md), [урок 3](LESSON-3.md).
 
 ## Приложение — React, TypeScript и FSD
 
@@ -16,13 +18,14 @@
 
 ## Окружение и запуск
 
-Используйте Node.js 22.12+ (ветка 22 указана в `.nvmrc`).
-Если установлен nvm: `nvm install` и `nvm use` из этой папки.
+Используйте Node.js 22.12+ (ветка 22 указана в `lesson-1-3/.nvmrc`).
+Если установлен nvm: `nvm install` и `nvm use` из папки `lesson-1-3`.
 Системный Node.js 20.13.1 слишком стар для установленного Vite.
 
 Из корня репозитория:
 
 ```sh
+cd lesson-1-3
 npm ci
 npm run dev
 ```
@@ -32,6 +35,8 @@ npm run dev
 остальные адреса показывают 404.
 
 ## Проверки
+
+Из папки `lesson-1-3`:
 
 ```sh
 npm run check
@@ -45,10 +50,10 @@ npm run format
 ## Структура
 
 ```text
-src/
+lesson-1-3/src/
   app/        # App.tsx, router.tsx, глобальные стили
   pages/      # TaskPage подключает виджет задач
-  widgets/    # TaskWidget: обёртка списка и начальные данные
+  widgets/    # TaskWidget: вызов хука и передача props
   features/   # taskList: useTasks, фильтры и удаление
   entities/   # тип Task и презентационный TaskCard с CSS-модулем
   shared/     # общие UI-компоненты и утилиты
@@ -60,7 +65,7 @@ src/
 относительные импорты, снаружи используется публичный `index.ts`:
 
 ```ts
-import { TaskPage } from 'pages/tasks';
+import { TaskPage } from "pages/tasks";
 ```
 
 ESLint с `eslint-plugin-boundaries` проверяет границы по разрешённым путям,

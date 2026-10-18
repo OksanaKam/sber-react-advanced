@@ -1,0 +1,174 @@
+.form {
+  display: grid;
+  gap: 16px;
+}
+
+.form > div {
+  display: grid;
+  gap: 8px;
+}
+
+.form label {
+  color: #24334b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #b8c4d4;
+  border-radius: 10px;
+  background: #fff;
+  color: #17243b;
+  font: inherit;
+}
+
+.form input::placeholder {
+  color: #68758a;
+}
+
+.form input:hover {
+  border-color: #778ba8;
+}
+
+.form input:focus-visible {
+  border-color: #405bd8;
+  outline: 3px solid #dce3ff;
+  outline-offset: 1px;
+}
+
+.form input.inputError {
+  border-color: #bd3345;
+  background: #fffafb;
+}
+
+.error {
+  color: #ad2337;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.form button[type='submit'] {
+  min-height: 48px;
+  margin-top: 6px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #344fc4;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form button[type='submit']:hover {
+  background: #293fa2;
+}
+
+.form button[type='submit']:active {
+  background: #203381;
+}
+
+.form button:focus-visible {
+  outline: 3px solid #7187ee;
+  outline-offset: 3px;
+}
+
+.form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.socialLinks {
+  min-width: 0;
+  margin: 4px 0 0;
+  padding: 16px 0 0;
+  border: 0;
+  border-top: 1px solid #e0e6ef;
+}
+
+.socialLinks h3 {
+  margin: 0 0 8px;
+  color: #24334b;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.hint {
+  margin: 0 0 12px;
+  color: #5b687d;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.linksList {
+  display: grid;
+  gap: 14px;
+}
+
+.linkCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) auto;
+  align-items: start;
+  gap: 12px;
+}
+
+.linkField {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.removeButton,
+.addButton {
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.removeButton {
+  margin-top: 29px;
+  min-height: 48px;
+  border: 1px solid #e7b7bf;
+  background: #fff;
+  color: #ad2337;
+}
+
+.removeButton:hover {
+  border-color: #bd3345;
+  background: #fff0f2;
+}
+
+.addButton {
+  width: 100%;
+  margin-top: 14px;
+  border: 1px dashed #8597d9;
+  background: #f4f6ff;
+  color: #344fc4;
+}
+
+.addButton:hover {
+  border-color: #344fc4;
+  background: #e9eeff;
+}
+
+@media (max-width: 600px) {
+  .linkCard {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .removeButton {
+    margin-top: 0;
+    justify-self: end;
+  }
+}
