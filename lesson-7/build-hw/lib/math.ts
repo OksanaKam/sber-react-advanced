@@ -1,0 +1,1 @@
+export const math = () => console.log('Используем math.ts');
