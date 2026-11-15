@@ -1,0 +1,71 @@
+.dialog {
+  box-sizing: border-box;
+  width: min(440px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 24px;
+  border: 1px solid #e0e6ef;
+  border-radius: 12px;
+  background: #fff;
+  color: #17243b;
+  font: 400 16px/1.5 system-ui, sans-serif;
+  box-shadow: 0 16px 48px rgb(23 36 59 / 20%);
+}
+
+.dialog::backdrop {
+  background: rgb(23 36 59 / 45%);
+}
+
+.title {
+  margin: 0 0 12px;
+  font-size: 20px;
+  overflow-wrap: anywhere;
+}
+
+.description {
+  margin: 0 0 24px;
+  color: #5b687d;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cancel,
+.confirm {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #b8c4d4;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel {
+  background: #fff;
+  color: #17243b;
+}
+
+.cancel:hover {
+  background: #f3f5fa;
+}
+
+.confirm {
+  border-color: #344fc4;
+  background: #344fc4;
+  color: #fff;
+}
+
+.confirm:hover {
+  background: #293fa2;
+}
+
+.cancel:focus-visible,
+.confirm:focus-visible {
+  outline: 3px solid #7187ee;
+  outline-offset: 3px;
+}
