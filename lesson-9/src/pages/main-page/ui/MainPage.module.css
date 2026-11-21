@@ -1,0 +1,12 @@
+.page {
+  width: min(100% - 32px, 680px);
+  margin: 32px auto;
+  display: grid;
+  gap: 20px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(24px, 5vw, 30px);
+  line-height: 1.3;
+}
