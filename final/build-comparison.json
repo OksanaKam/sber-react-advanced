@@ -1,0 +1,33 @@
+{
+  "node": "v22.23.3",
+  "platform": "darwin/arm64",
+  "runs": 3,
+  "results": [
+    {
+      "name": "Webpack",
+      "seconds": [
+        10.954,
+        9.449,
+        9.605
+      ],
+      "medianSeconds": 9.605,
+      "totalBytes": 796276,
+      "jsBytes": 741460,
+      "cssBytes": 51615,
+      "jsGzipBytes": 243232
+    },
+    {
+      "name": "Vite + SWC",
+      "seconds": [
+        5.238,
+        4.759,
+        4.995
+      ],
+      "medianSeconds": 4.995,
+      "totalBytes": 764796,
+      "jsBytes": 711987,
+      "cssBytes": 39117,
+      "jsGzipBytes": 234415
+    }
+  ]
+}
